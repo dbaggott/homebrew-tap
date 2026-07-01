@@ -5,41 +5,45 @@
 class AwsUse < Formula
   desc "Switch AWS SSO accounts/roles fast across multiple SSO sessions"
   homepage "https://github.com/dbaggott/aws-use"
-  version "0.1.1"
+  version "0.1.2"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/dbaggott/aws-use/releases/download/v0.1.1/aws-use_darwin_amd64.tar.gz"
-      sha256 "5bf3443bb347c4a2311d003880ff87ee30a4d9e035f3152d072ef1856280b88c"
+      url "https://github.com/dbaggott/aws-use/releases/download/v0.1.2/aws-use_darwin_amd64.tar.gz"
+      sha256 "860ce4c0d6907072ec29b5b18efe08d10248fc2e1729ec62cf65b2bc94b21934"
 
       define_method(:install) do
         bin.install "aws-use"
+        generate_completions_from_executable(bin/"aws-use", "completion")
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/dbaggott/aws-use/releases/download/v0.1.1/aws-use_darwin_arm64.tar.gz"
-      sha256 "d8aa548da67ff13648828e3f3b7995c75b024873645f187cb28767d317d5cc1f"
+      url "https://github.com/dbaggott/aws-use/releases/download/v0.1.2/aws-use_darwin_arm64.tar.gz"
+      sha256 "bfbec0b9daca5c9f797e45c8cfbc8bc0fa1eed62c3783807b3554c4f75467692"
 
       define_method(:install) do
         bin.install "aws-use"
+        generate_completions_from_executable(bin/"aws-use", "completion")
       end
     end
   end
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/dbaggott/aws-use/releases/download/v0.1.1/aws-use_linux_amd64.tar.gz"
-      sha256 "15e015a37cfb6f5fb5b49715de9bfadf777d9f14dd4c9a83f9a474c80516717f"
+      url "https://github.com/dbaggott/aws-use/releases/download/v0.1.2/aws-use_linux_amd64.tar.gz"
+      sha256 "671e55a04c48c8cf4c424e8f3d599d2ea40224a77f4f373a83946a1db96dbab0"
       define_method(:install) do
         bin.install "aws-use"
+        generate_completions_from_executable(bin/"aws-use", "completion")
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/dbaggott/aws-use/releases/download/v0.1.1/aws-use_linux_arm64.tar.gz"
-      sha256 "be51721065fc56ee447b4d9a3f254509ce40a2bb520e6c5a432131e41db50b67"
+      url "https://github.com/dbaggott/aws-use/releases/download/v0.1.2/aws-use_linux_arm64.tar.gz"
+      sha256 "5276abaa7d4710d7135cd6d4e33ea4b2b25269f114a1827e41da49cc3020584f"
       define_method(:install) do
         bin.install "aws-use"
+        generate_completions_from_executable(bin/"aws-use", "completion")
       end
     end
   end
