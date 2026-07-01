@@ -5,21 +5,21 @@
 class AwsUse < Formula
   desc "Switch AWS SSO accounts/roles fast across multiple SSO sessions"
   homepage "https://github.com/dbaggott/aws-use"
-  version "0.1.0"
+  version "0.1.1"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/dbaggott/aws-use/releases/download/v0.1.0/aws-use_darwin_amd64.tar.gz"
-      sha256 "368dfd04adf9f028757e8dbf349bf423eb8181624f47d63b4813c18844546c19"
+      url "https://github.com/dbaggott/aws-use/releases/download/v0.1.1/aws-use_darwin_amd64.tar.gz"
+      sha256 "5bf3443bb347c4a2311d003880ff87ee30a4d9e035f3152d072ef1856280b88c"
 
       define_method(:install) do
         bin.install "aws-use"
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/dbaggott/aws-use/releases/download/v0.1.0/aws-use_darwin_arm64.tar.gz"
-      sha256 "3cee79ea6508d4ef3f4c7ffe64e271516ba2e28a3e3d9aed9ae8ca226e54fa18"
+      url "https://github.com/dbaggott/aws-use/releases/download/v0.1.1/aws-use_darwin_arm64.tar.gz"
+      sha256 "d8aa548da67ff13648828e3f3b7995c75b024873645f187cb28767d317d5cc1f"
 
       define_method(:install) do
         bin.install "aws-use"
@@ -29,15 +29,15 @@ class AwsUse < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/dbaggott/aws-use/releases/download/v0.1.0/aws-use_linux_amd64.tar.gz"
-      sha256 "c37594949f1bc72ab02494d3f98f29047307e66bdbae21580337dcc38dfc3de7"
+      url "https://github.com/dbaggott/aws-use/releases/download/v0.1.1/aws-use_linux_amd64.tar.gz"
+      sha256 "15e015a37cfb6f5fb5b49715de9bfadf777d9f14dd4c9a83f9a474c80516717f"
       define_method(:install) do
         bin.install "aws-use"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/dbaggott/aws-use/releases/download/v0.1.0/aws-use_linux_arm64.tar.gz"
-      sha256 "a66a6b5c27c95ea07adc357bb349f0ecaafc7daadd63447cd17f05407f4fa20a"
+      url "https://github.com/dbaggott/aws-use/releases/download/v0.1.1/aws-use_linux_arm64.tar.gz"
+      sha256 "be51721065fc56ee447b4d9a3f254509ce40a2bb520e6c5a432131e41db50b67"
       define_method(:install) do
         bin.install "aws-use"
       end
@@ -46,8 +46,13 @@ class AwsUse < Formula
 
   def caveats
     <<~EOS
-      Add the shell hook so `aws-use` can switch your current shell:
-        eval "$(aws-use shellenv)"
+      aws-use switches your shell's AWS profile, so it needs a shell hook.
+      Add this to your shell startup file, then restart your shell:
+
+        ~/.zshrc or ~/.bashrc:  eval "$(aws-use shellenv)"
+
+      Without the hook, `aws-use` prints the profile it picked but can't set
+      AWS_PROFILE in your current shell.
     EOS
   end
 
