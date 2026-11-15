@@ -1,6 +1,6 @@
 # homebrew-tap
 
-Personal Homebrew tap for @dbaggott's tools.
+A Homebrew tap of command-line tools by @dbaggott, free for anyone to install.
 
 ## Usage
 
@@ -9,10 +9,6 @@ brew tap dbaggott/tap
 brew install <formula>
 ```
 
-## Formulae
-
-| Formula | Description |
-|---------|-------------|
-| [git-tidy](https://github.com/dbaggott/git-tidy) | Clean up git worktrees, stale branches, and pack objects |
+To see the formulae in this tap, run `brew search dbaggott/tap/` or browse [`Formula/`](Formula/).
 
 Formulae in this tap are kept up to date automatically by release workflows in each tool's source repo.
