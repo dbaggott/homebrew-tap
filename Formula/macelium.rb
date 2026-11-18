@@ -1,8 +1,8 @@
 class Macelium < Formula
   desc "Set up a Mac from a state repo and keep it there"
   homepage "https://github.com/dbaggott/macelium"
-  url "https://github.com/dbaggott/macelium/archive/refs/tags/v0.5.0.tar.gz"
-  sha256 "0b350991efd661963d77cc49bad473aafa99d3fa69b7c8fd34bdea2f3dfa4c22"
+  url "https://github.com/dbaggott/macelium/archive/refs/tags/v0.6.0.tar.gz"
+  sha256 "766cdf4447b9f5034fd9da3286615bd74a8b5c4b29a1521cfc362ad673f863ee"
   license "MIT"
 
   depends_on "chezmoi"
@@ -25,6 +25,6 @@ class Macelium < Formula
   end
 
   test do
-    assert_match "macelium 0.5.0", shell_output("#{bin}/macelium --version")
+    assert_match "macelium 0.6.0", shell_output("#{bin}/macelium --version")
   end
 end
