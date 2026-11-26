@@ -1,7 +1,7 @@
 class Macelium < Formula
   desc "Set up a Mac from a state repo and keep it there"
   homepage "https://github.com/dbaggott/macelium"
-  version "0.11.0"
+  version "0.11.1"
   license "MIT"
 
   depends_on :macos
@@ -11,12 +11,12 @@ class Macelium < Formula
   depends_on "mise"
 
   on_arm do
-    url "https://github.com/dbaggott/macelium/releases/download/v0.11.0/macelium_darwin_arm64.tar.gz"
-    sha256 "cebc7c6c01d5e25342bb5a54b3fdbd1c2bd3ef1fd75be1ef9a7a074e9b66841d"
+    url "https://github.com/dbaggott/macelium/releases/download/v0.11.1/macelium_darwin_arm64.tar.gz"
+    sha256 "45ff263ec0550f234706c263eb0d2ad5119519c6f43204cbb204913e8d1fa16e"
   end
   on_intel do
-    url "https://github.com/dbaggott/macelium/releases/download/v0.11.0/macelium_darwin_amd64.tar.gz"
-    sha256 "64a0fcf44f916db99ec0935d4f674d6b8aec188569729437da540513defe518e"
+    url "https://github.com/dbaggott/macelium/releases/download/v0.11.1/macelium_darwin_amd64.tar.gz"
+    sha256 "6cdaded58c58f34dd6830aad91a2f34083a7b20f1f36e9f87cea6d1f4a643a1c"
   end
 
   def install
@@ -35,6 +35,6 @@ class Macelium < Formula
   end
 
   test do
-    assert_match "macelium 0.11.0", shell_output("#{bin}/macelium --version")
+    assert_match "macelium 0.11.1", shell_output("#{bin}/macelium --version")
   end
 end
